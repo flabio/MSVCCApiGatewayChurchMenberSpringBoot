@@ -1,0 +1,49 @@
+eureka:
+  client:
+    register-with-eureka: true
+
+server:
+  port: 8080
+
+spring:
+  application:
+    name: msvc-gateway
+
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+      routes:
+        - id: rol-microservice
+          uri: http://localhost:8084
+          predicates:
+            - Method=GET,POST,PUT,DELETE
+            - Path=/rol/**
+
+        - id: ministerial-microservice
+          uri: http://localhost:8084
+          predicates:
+            - Method=GET,POST,PUT,DELETE
+            - Path=/api/ministerial/**,
+
+        - id: teampesca-microservice
+          uri: http://localhost:8084
+          predicates:
+            - Method=GET,POST,PUT,DELETE
+            - Path=/api/teampesca/**
+
+        - id: church-microservice
+          uri: http://localhost:8084
+          predicates:
+            - Method=GET,POST,PUT,DELETE
+            - Path=/api/church/**,
+
+        - id: user-microservice
+          uri: http://localhost:8084
+          predicates:
+            - Method=GET,POST,PUT,DELETE
+            - Path=/api/user/**
+logging:
+  level:
+    org.springframework.cloud.gateway: DEBUG
