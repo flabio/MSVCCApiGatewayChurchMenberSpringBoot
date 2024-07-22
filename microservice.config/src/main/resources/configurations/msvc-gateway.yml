@@ -19,7 +19,7 @@ spring:
           uri: http://localhost:8084
           predicates:
             - Method=GET,POST,PUT,DELETE
-            - Path=/rol/**
+            - Path=/api/rol/**,
 
         - id: ministerial-microservice
           uri: http://localhost:8084
