@@ -16,31 +16,33 @@ spring:
           enabled: true
       routes:
         - id: rol-microservice
-          uri: http://localhost:8084
+          uri: http://localhost:3001
           predicates:
             - Method=GET,POST,PUT,DELETE
             - Path=/api/rol/**,
+        - id: church-microservice
+          uri: http://localhost:3002
+          predicates:
+            - Method=GET,POST,PUT,DELETE
+            - Path=/api/church/**,
+        - id: team-pesca-microservice
+          uri: http://localhost:3003
+          predicates:
+            - Method=GET,POST,PUT,DELETE
+            - Path=/api/team_pesca/**
 
         - id: ministerial-microservice
-          uri: http://localhost:8084
+          uri: http://localhost:3004
           predicates:
             - Method=GET,POST,PUT,DELETE
             - Path=/api/ministerial/**,
 
-        - id: teampesca-microservice
-          uri: http://localhost:8084
-          predicates:
-            - Method=GET,POST,PUT,DELETE
-            - Path=/api/teampesca/**
 
-        - id: church-microservice
-          uri: http://localhost:8084
-          predicates:
-            - Method=GET,POST,PUT,DELETE
-            - Path=/api/church/**,
+
+
 
         - id: user-microservice
-          uri: http://localhost:8084
+          uri: http://localhost:3006
           predicates:
             - Method=GET,POST,PUT,DELETE
             - Path=/api/user/**
